@@ -1,0 +1,40 @@
+.formularioLogin{
+    background: rgba(73, 138, 47, 0.726);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+.acceder{
+    background:#269111;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600!Important;
+    color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    transition: .8s;
+}
+.acceder:hover{
+    color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+.form-control{
+    background: rgba(0,0, 0,0.4);
+    border-style: none;
+    transition: 0.6s ease-in;
+    outline: none;
+    box-shadow: none;
+}
+.form-control:focus{
+    background: rgba(0,0, 0,0.1);
+    box-shadow: none;
+    outline: none;
+}
+.form-control::placeholder{
+    color: white;
+}
+input{
+    font-weight: 600;
+    color: white;
+}

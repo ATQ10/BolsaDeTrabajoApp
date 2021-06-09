@@ -1,0 +1,73 @@
+<ng-template #registroEmpresa let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Registro de Empresa</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form action="">
+            <div class="form-group mx-sm-4">
+                <div class="etiqueta">*Nombre:</div>
+                <input class="form-control" type="text" name="nombre" placeholder="Ingrese nombre de empresa" [(ngModel)]="nombre" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Encargado:</div>
+                <input class="form-control" type="text" name="encargado" placeholder="Ingrese nombre de encargado" [(ngModel)]="encargado" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Fecha fundacion:</div>
+                <input class="form-control" type="date" name="fecha_fundacion" [(ngModel)]="fecha_fundacion" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Email:</div>
+                <input class="form-control" type="text" name="email" placeholder="Ingrese email" [(ngModel)]="email" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Domicilio:</div>
+                <input class="form-control" type="text" name="domicilio" placeholder="Ingrese domicilio" [(ngModel)]="domicilio" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Teléfono:</div>
+                <input class="form-control" type="number" name="telefono" placeholder="Ingrese telefono" [(ngModel)]="telefono" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Sede:</div>
+                <input class="form-control" type="text" name="sede" placeholder="Ingrese sede" [(ngModel)]="sede" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Horario:</div>
+                <input class="form-control" type="text" name="horario_atencion" placeholder="Ingrese horario de atencion" [(ngModel)]="horario_atencion" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Areas:</div>
+                <textarea class="form-control" name="areas" placeholder="Ingrese Areas" [(ngModel)]="areas"></textarea>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Extras:</div>
+              <textarea class="form-control" name="extras" placeholder="Ingrese datos extras" [(ngModel)]="extras"></textarea>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">URL de logo:</div>
+                <input class="form-control" type="text" name="url_logo" placeholder="Ingrese url de logo" [(ngModel)]="url_logo" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Contraseña:</div>
+                <input class="form-control" type="password" name="password" placeholder="Ingrese contraseña" [(ngModel)]="password" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Confirmar contraseña:</div>
+                <input class="form-control" type="password" name="password2" placeholder="Ingrese contraseña" [(ngModel)]="password2" required>
+            </div>
+            <div class="form-group mx-sm-4">
+              <input type="submit" class="btn btn-block btn-success acceder" (click)="registrar()" value="REGISTRAR">
+              <input type="reset" class="btn btn-block btn-success acceder" (click)="limpiar()" value="LIMPIAR">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>
+
+<button class="btn btn-success mb-2 mr-2" (click)="openScrollableContent(registroEmpresa)">Registrarme como empresa</button>

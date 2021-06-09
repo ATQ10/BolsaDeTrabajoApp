@@ -1,0 +1,22 @@
+.banner{
+    width: 100%;
+    height: 200px;
+    background-size: 100% 100%;
+    border: 1px solid rgb(0, 0, 0);
+}
+.tema{
+    font-size: xx-large;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+}
+.opciones{
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+}
+.empecemos{
+    font-weight: 700;
+}

@@ -1,0 +1,31 @@
+.barra{
+    height: 40px;
+    font-weight: 600;
+}
+.buscar{
+    height: 40px;
+    border-radius: 0px;
+}
+.rowbuscar{
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+    border: 3px solid rgb(0, 0, 0);
+}
+.tendencia{
+    font-weight: 500;
+    font-size: 20px;
+}
+.op{
+    text-decoration-line: underline;
+    padding-left: 10px;
+    color: rgb(55, 55, 197);
+}
+.rowresultados{
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+    border: 3px solid rgb(0, 0, 0);
+}
+.itemsEmpresa{
+    height: 400px;
+}
