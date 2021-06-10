@@ -13,6 +13,7 @@ import { InicioComponent } from './index/inicio/inicio.component';
 import { CarouselComponent } from './index/carousel/carousel.component';
 import { EmpresasComponent } from './index/empresas/empresas.component';
 import { AspirantesComponent } from './index/aspirantes/aspirantes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AspirantesComponent } from './index/aspirantes/aspirantes.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule 
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
