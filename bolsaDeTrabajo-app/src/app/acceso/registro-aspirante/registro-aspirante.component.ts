@@ -23,8 +23,8 @@ export class RegistroAspiranteComponent implements OnInit {
   residencia: string = "";
   idioma_primario: string = "";
   idioma_secundario: string = "";
-  disp_horario: string = "";
-  disp_viajar: string = "";
+  disp_horario: string = "Si";
+  disp_viajar: string = "Si";
   areas: string = "";
   extras: string = "";
   url_logo: string = "";
@@ -53,13 +53,9 @@ export class RegistroAspiranteComponent implements OnInit {
         alert("Las contraseña no coinciden");
         return;
       } else{
-        alert(this.nombre);
-        alert(this.apellido);
-        alert(this.fecha_nacimiento);
-        alert(this.email);
-        alert(this.password);
-        alert(this.password2);
         this.saveAspirante();
+        this.limpiar();
+        alert("Verifique su cuenta en su email personal");
       }
   }
 
@@ -100,10 +96,22 @@ export class RegistroAspiranteComponent implements OnInit {
     this.nombre = "";
     this.apellido = "";
     this.fecha_nacimiento = "";
+    this.sexo = "";
     this.email = "";
     this.password = "";
     this.password2 = "";
+    this.domicilio = "";
+    this.telefono = "";
+    this.nacionalidad = "";
+    this.residencia = "";
+    this.idioma_primario = "";
+    this.idioma_secundario = "";
+    this.disp_horario = "Si";
+    this.disp_viajar = "Si";
+    this.areas = "";
+    this.extras = "";
+    this.url_logo = "";
+    this.url_CV = "";
   }
-
   
 }

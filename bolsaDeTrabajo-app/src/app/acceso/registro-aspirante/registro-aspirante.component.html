@@ -16,6 +16,14 @@
                 <input class="form-control" type="text" name="apellido" placeholder="Ingrese su apellido" [(ngModel)]="apellido" required>
             </div>
             <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">*Sexo:</div>
+              <select class="form-control" id="sexo" name="sexo" [(ngModel)]="sexo" required>
+                <option value="" selected>*Elegir sexo*</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+              </select>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
               <div class="etiqueta">*Fecha de nacimiento:</div>
                 <input class="form-control" type="date" name="fecha_nacimiento" [(ngModel)]="fecha_nacimiento" required>
             </div>
@@ -30,6 +38,56 @@
             <div class="form-group mx-sm-4 pt-2">
               <div class="etiqueta">*Confirmar contraseña:</div>
                 <input class="form-control" type="password" name="password2" placeholder="Ingrese su contraseña" [(ngModel)]="password2" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Domicilio:</div>
+                <input class="form-control" type="text" name="domicilio" placeholder="Ingrese su domicilio" [(ngModel)]="domicilio" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Teléfono:</div>
+                <input class="form-control" type="number" name="telefono" placeholder="Ingrese su telefono" [(ngModel)]="telefono" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Nacionalidad:</div>
+                <input class="form-control" type="text" name="nacionalidad" placeholder="Ingrese su nacionalidad" [(ngModel)]="nacionalidad" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Residencia:</div>
+                <input class="form-control" type="text" name="residencia" placeholder="Ingrese su residencia" [(ngModel)]="residencia" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Idioma primario:</div>
+                <input class="form-control" type="text" name="idioma_primario" placeholder="Ingrese idioma" [(ngModel)]="idioma_primario" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Idioma secundario:</div>
+                <input class="form-control" type="text" name="idioma_secundario" placeholder="Ingrese idioma" [(ngModel)]="idioma_secundario" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Disponibilidad de horario:</div>
+              <select class="form-control" id="disp_horario" name="disp_horario" [(ngModel)]="disp_horario" required>
+                <option value="Si" selected>Sí</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Disponibilidad de viajar:</div>
+              <select class="form-control" id="disp_viajar" name="disp_viajar" [(ngModel)]="disp_viajar" required>
+                <option value="Si" selected>Sí</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Areas:</div>
+                <textarea class="form-control" name="areas" placeholder="Ingrese Areas" [(ngModel)]="areas"></textarea>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">Extras:</div>
+              <textarea class="form-control" name="extras" placeholder="Ingrese datos extras" [(ngModel)]="extras"></textarea>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+              <div class="etiqueta">URL de logo:</div>
+                <input class="form-control" type="text" name="url_logo" placeholder="Ingrese url de logo" [(ngModel)]="url_logo" required>
             </div>
             <div class="form-group mx-sm-4">
               <input type="submit" class="btn btn-block btn-success acceder" (click)="registrar()" value="REGISTRAR">
