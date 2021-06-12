@@ -23,7 +23,7 @@ export class InicioComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.tipo='';
+    this.tipo='a';
 
     switch (this.tipo) {
       case 'e':
