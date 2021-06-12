@@ -1,6 +1,10 @@
+/*AQUI SE CAMBIA LA IMAGEN DE FONDO*/ 
 .fondo{
-    background-image: url(https://img.freepik.com/foto-gratis/blur-naturaleza-parque-verde-bokeh-luz-sol-resumen-antecedentes-copie-espacio-aventura-viaje-concepto-medio-ambiente-estilo-color-filtro-tono-vendimia_1253-1107.jpg?size=626&ext=jpg&ga=GA1.2.1149860058.1620950400);
+    background-image: url(http://1.bp.blogspot.com/-73oFkfQ7slA/UXbF6F5OUOI/AAAAAAAAAGk/Ktwb-Zy6yVw/s1600/plank-de-madera-textura-madera_318727.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+.footer{
+    background: linear-gradient(0deg, rgba(144,3,3,1) 0%, rgba(255,0,0,1) 100%);
 }

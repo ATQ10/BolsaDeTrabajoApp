@@ -5,6 +5,13 @@
 .buscar{
     height: 40px;
     border-radius: 0px;
+    background-color: red;
+    border: none;
+    background-color: red;
+    color: white;
+}
+.buscar:hover{
+    background: linear-gradient(90deg, rgba(133,4,19,1) 0%, rgba(255,15,15,1) 50%, rgba(250,83,109,1) 100%);
 }
 .rowbuscar{
     background: rgba(255, 255, 255, 0.9);

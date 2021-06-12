@@ -3,3 +3,17 @@
     flex-direction: column;
     align-content: flex-end;
 }
+.navbar{
+    background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(144,3,3,1) 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+}
+
+.navbar:hover{
+    color: white;
+}
+
+.navbar-brand{
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+}

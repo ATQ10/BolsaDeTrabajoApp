@@ -1,0 +1,9 @@
+.btn{
+    background: red;
+    border: none;
+}
+.btn:hover{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    transition: .8s;
+    background: linear-gradient(90deg, rgba(133,4,19,1) 0%, rgba(255,15,15,1) 50%, rgba(250,83,109,1) 100%);;
+  }
