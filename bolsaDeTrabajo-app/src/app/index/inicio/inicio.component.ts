@@ -9,11 +9,11 @@ export class InicioComponent implements OnInit {
   //Tipo de acceso
   tipo:string='';
   //Banners general
-  bgeneral:string='https://wordpress-network.prod.aws.skyscnr.com/wp-content/uploads/2018/05/peru-machu-picchu-inca.jpg?w=1000&h=312&crop=1';
+  bgeneral:string='https://www.defontana.com/cl/wp-content/uploads/2017/08/capital-de-trabajo.png';
   //Banners Empresa
-  bempresa:string='https://i.pinimg.com/736x/cc/e7/47/cce747aa55ff17fd592eb8a87183707a.jpg'
+  bempresa:string='https://i.pinimg.com/564x/e2/c5/5d/e2c55d668dad677984331af5a8567b20.jpg'
   //Banners Aspirante
-  baspirante:string='https://auladeestudio.net/wp-content/uploads/2018/03/naturaleza-banner.jpg'
+  baspirante:string='https://cdn.bizneo.com/blog/wp-content/uploads/2020/01/roles-de-un-equipo-de-trabajo-810x455.jpg'
   urlBanner:string='';
 
   //Secciones
@@ -23,7 +23,7 @@ export class InicioComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.tipo='';
+    this.tipo='e';
 
     switch (this.tipo) {
       case 'e':

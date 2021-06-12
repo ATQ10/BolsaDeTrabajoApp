@@ -94,16 +94,6 @@ exports.create = (req, res) => {
       });
       //NODEMAILER
       //Permisos
-        Apermiso.create(apermiso)
-        .then(data => {
-          res.send(data);
-        })
-        .catch(err => {
-          res.status(500).send({
-            message:
-              err.message || "Some error occurred while creating the Aspirante."
-          });
-        });
     })
     .catch(err => {
       res.status(500).send({
