@@ -14,6 +14,8 @@ import { CarouselComponent } from './index/carousel/carousel.component';
 import { EmpresasComponent } from './index/empresas/empresas.component';
 import { AspirantesComponent } from './index/aspirantes/aspirantes.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BtnempresasComponent } from './index/btnempresas/btnempresas.component';
+import { BtnaspirantesComponent } from './index/btnaspirantes/btnaspirantes.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     InicioComponent,
     CarouselComponent,
     EmpresasComponent,
-    AspirantesComponent
+    AspirantesComponent,
+    BtnempresasComponent,
+    BtnaspirantesComponent
   ],
   imports: [
     BrowserModule,

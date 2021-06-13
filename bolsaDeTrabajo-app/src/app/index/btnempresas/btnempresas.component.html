@@ -1,6 +1,6 @@
-<ng-template #registroEmpresa let-modal>
+<ng-template #editarEmpresa let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Registro de Empresa</h4>
+      <h4 class="modal-title">Editar Perfil</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -60,8 +60,8 @@
                 <input class="form-control" type="password" name="password2" placeholder="Ingrese contraseña" [(ngModel)]="password2" required>
             </div>
             <div class="form-group mx-sm-4">
-              <input type="submit" class="btn btn-block btn-success acceder" (click)="registrar()" value="REGISTRAR">
-              <input type="reset" class="btn btn-block btn-success acceder" (click)="limpiar()" value="LIMPIAR">
+                <input type="submit" class="btn2 btn-block acceder" (click)="registrar()" value="GUARDAR">
+                <input type="reset" class="btn2 btn-block acceder" (click)="limpiar()" value="LIMPIAR">                
             </div>
         </form>
     </div>
@@ -69,4 +69,60 @@
       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
-<button class="btn btn-success mb-2 mr-2" (click)="openScrollableContent(registroEmpresa)">Registrarme como empresa</button>
+
+<ng-template #pblVacante let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Publicar Vacante</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form action="">
+            <div class="form-group mx-sm-4">
+                <div class="etiqueta">*Puesto:</div>
+                <input class="form-control" type="text" name="puesto" placeholder="Ingrese nombre de vacante" [(ngModel)]="puesto" required>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+                <div class="etiqueta">*Tipo de entrevista:</div>
+                <select class="form-control" id="tipo" name="tipo" [(ngModel)]="tipo" required>
+                    <option value="" selected>*Elegir tipo de entrevista*</option>
+                    <option value="Texto">Texto</option>
+                    <option value="Audio">Audio</option>
+                    <option value="Video">Vídeo</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+                <div class="etiqueta">*Cantidad de preguntas para el aspirante:</div>
+                <select class="form-control" id="cantidad" name="cantidad" [(ngModel)]="cantidad" required>
+                  <option value="" selected>*Elegir cantidad*</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-4 pt-2">
+                <div class="etiqueta">*Vigencia vacante:</div>
+                <input class="form-control" type="date" name="fecha_vigencia" [(ngModel)]="fecha_vigencia" required>
+            </div>
+            <!--CICLO FOR PARA INGRESAR PREGUNTAS SEGUN LA CANTIDAD SELECCIONADA
+            <div class="form-group mx-sm-4 pt-2">
+                <div class="etiqueta">*Pregunta:</div>
+                <input class="form-control" type="text" name="pr{{i}}" placeholder="Ingrese pregunta para aspirante" [(ngModel)]="pr{{i}}" required>
+            </div>-->
+            
+            <div class="form-group mx-sm-4">
+                <input type="submit" class="btn2 btn-block acceder" (click)="registrar()" value="GUARDAR">
+                <input type="reset" class="btn2 btn-block acceder" (click)="limpiar()" value="LIMPIAR">                
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>
+
+<button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(editarEmpresa)">Editar perfil</button>
+<button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(pblVacante)">Publicar Vacante</button>

@@ -11,7 +11,7 @@ export class InicioComponent implements OnInit {
   //Banners general
   bgeneral:string='https://www.defontana.com/cl/wp-content/uploads/2017/08/capital-de-trabajo.png';
   //Banners Empresa
-  bempresa:string='https://i.pinimg.com/564x/e2/c5/5d/e2c55d668dad677984331af5a8567b20.jpg'
+  bempresa:string='https://ellevo.com/es/wp-content/uploads/sites/3/2018/09/06-csc-em-grandes-empresas.jpg'
   //Banners Aspirante
   baspirante:string='https://cdn.bizneo.com/blog/wp-content/uploads/2020/01/roles-de-un-equipo-de-trabajo-810x455.jpg'
   urlBanner:string='';
@@ -23,8 +23,8 @@ export class InicioComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.tipo='';
-    
+    this.tipo='e';
+
     switch (this.tipo) {
       case 'e':
         this.urlBanner = this.bempresa;
@@ -43,5 +43,4 @@ export class InicioComponent implements OnInit {
         break;
     }
   }
-
 }
