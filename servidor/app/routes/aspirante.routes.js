@@ -6,7 +6,7 @@ module.exports = app => {
     // Create a new Aspirante
     router.post("/", aspirantes.create);
 
-    // Create a new Aspirante
+    // Login a new Aspirante
     router.post("/login", aspirantes.login);
   
     // Retrieve all Aspirante

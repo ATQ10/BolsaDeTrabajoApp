@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import { md5 } from 'src/app/acceso/md5';
 
 @Component({
   selector: 'app-btnempresas',
@@ -8,6 +9,8 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./btnempresas.component.css']
 })
 export class BtnempresasComponent implements OnInit {
+  data:any;
+
    //Campos de formulario Empresa
    nombre: string = "";
    encargado: string = "";
@@ -37,6 +40,40 @@ export class BtnempresasComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    // Obtener el arreglo de localStorage
+    this.obtenerData();
+  }
+
+  actualizarData(){
+    this.empresaService.get(this.data.id)
+      .subscribe(
+      response => {
+        console.log(response);
+        // Se guarda en localStorage despues de JSON stringificarlo 
+        localStorage.setItem('data', JSON.stringify(response));
+        localStorage.setItem('modo', md5('e'));
+        this.data = localStorage.getItem('data');
+        this.data = JSON.parse(this.data);
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  obtenerData():void{
+    this.data = localStorage.getItem('data');
+    this.data = JSON.parse(this.data);
+    this.nombre = this.data.nombre;
+    this.encargado = this.data.encargado;
+    this.fecha_fundacion = this.data.fecha_fundacion;
+    this.email = this.data.email;
+    this.domicilio = this.data.domicilio;
+    this.telefono = this.data.telefono;
+    this.sede = this.data.sede;
+    this.horario_atencion = this.data.horario_atencion;
+    this.areas = this.data.areas;
+    this.extras = this.data.extras;
+    this.url_logo = this.data.url_logo;
   }
 
   openScrollableContent(contenido: any) {
@@ -51,8 +88,6 @@ export class BtnempresasComponent implements OnInit {
         return;
       } else{
         this.saveEmpresa();
-        this.limpiar();
-        alert("Verifique su cuenta en su email personal")
       }
   }
 
@@ -62,8 +97,7 @@ export class BtnempresasComponent implements OnInit {
       encargado: this.encargado,
       fecha_fundacion: this.fecha_fundacion,
       email: this.email,
-      password: this.password,
-      password2: this.password2,
+      password: md5(this.password),
       domicilio: this.domicilio,
       telefono: this.telefono,
       sede: this.sede,
@@ -71,12 +105,14 @@ export class BtnempresasComponent implements OnInit {
       areas: this.areas,
       extras: this.extras,
       url_logo: this.url_logo,
-      activo: false
+      activo: true
     };
-    this.empresaService.create(data)
+    this.empresaService.update(this.data.id,data)
     .subscribe(
       response => {
         console.log(response);
+        alert(response.message);
+        this.actualizarData();
         this.submitted = true;
       },
       error => {

@@ -76,7 +76,7 @@ exports.create = (req, res) => {
 
       var mensaje = "Estimad@ "+data.nombre+"\nNos comunicamos contigo"+
        " para validar que efectivamente deseas crear una cuenta en nuestro"+
-       " sitio web, de ser así accede a la siguiente liga: http://localhost:8080/api/aspirante/active/"+data.id;
+       " sitio web, de ser así accede a la siguiente liga: http://localhost:3000/api/aspirantes/active/"+data.id;
 
       var mailOptions = {
         from: 'unemployed.assistent@gmail.com',

@@ -67,11 +67,29 @@ export class LoginComponent implements OnInit {
           error => {
             console.log(error);
           });
-      }else{
-        this.empresaService.create(data)
-          .subscribe(
+      }else if(this.modo=="empresas"){
+        this.empresaService.login(data)
+        .subscribe(
           response => {
             console.log(response);
+            this.data = response;
+            if(this.data[0].email==data.email){
+              if(this.data[0].activo){
+                if(this.data[0].password==data.password){
+                  // Se guarda en localStorage despues de JSON stringificarlo 
+                  localStorage.setItem('data', JSON.stringify(this.data[0]));
+                  localStorage.setItem('modo', md5('e'));
+                  this.router.navigate(["./"]);                 
+                  alert("Bienvenid@");
+                }else{
+                  alert("Contraseña incorrecta");
+                }
+              }else{
+                alert("Cuenta no verificada");
+              }
+            }else{
+              alert("Email no registrado");
+            }
           },
           error => {
             console.log(error);
