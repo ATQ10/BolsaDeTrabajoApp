@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { md5 } from 'src/app/acceso/md5';
 import { AspiranteService } from 'src/app/services/aspirante.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { AspiranteService } from 'src/app/services/aspirante.service';
 })
 
 export class BtnaspirantesComponent implements OnInit {
+  data:any;
+
   nombre: string = "";
   apellido: string = "";
   fecha_nacimiento: string = "";
@@ -34,8 +37,46 @@ export class BtnaspirantesComponent implements OnInit {
     private aspiranteService: AspiranteService) { this.limpiar(); }
 
   ngOnInit(): void {
+    // Obtener el arreglo de localStorage
+    this.obtenerData();
+  }
+  actualizarData(){
+    this.aspiranteService.get(this.data.id)
+      .subscribe(
+      response => {
+        console.log(response);
+        // Se guarda en localStorage despues de JSON stringificarlo 
+        localStorage.setItem('data', JSON.stringify(response));
+        localStorage.setItem('modo', md5('a'));
+        this.data = localStorage.getItem('data');
+        this.data = JSON.parse(this.data);
+      },
+      error => {
+        console.log(error);
+      });
   }
 
+  obtenerData():void{
+    this.data = localStorage.getItem('data');
+    this.data = JSON.parse(this.data);
+    this.nombre=this.data.nombre;
+    this.apellido=this.data.apellido;
+    this.fecha_nacimiento=this.data.fecha_nacimiento;
+    this.sexo=this.data.sexo;
+    this.email=this.data.email;
+    this.domicilio=this.data.domicilio;
+    this.telefono=this.data.telefono;
+    this.nacionalidad=this.data.nacionalidad;
+    this.residencia=this.data.residencia;
+    this.idioma_primario=this.data.idioma_primario;
+    this.idioma_secundario=this.data.idioma_secundario;
+    this.disp_horario=this.data.disp_horario;
+    this.disp_viajar=this.data.disp_viajar;
+    this.areas=this.data.areas;
+    this.extras=this.data.extras;
+    this.url_logo=this.data.url_logo;
+    this.url_CV=this.data.url_CV;
+  }
   openScrollableContent(contenido: any) {
     this.modalService.open(contenido, { scrollable: true });
   }
@@ -47,8 +88,6 @@ export class BtnaspirantesComponent implements OnInit {
         return;
       } else{
         this.saveAspirante();
-        this.limpiar();
-        alert("Verifique su cuenta en su email personal");
       }
   }
   saveAspirante(): void{
@@ -58,7 +97,7 @@ export class BtnaspirantesComponent implements OnInit {
       sexo: this.sexo,
       fecha_nacimiento: this.fecha_nacimiento,
       email: this.email,
-      password: this.password,
+      password: md5(this.password),
       domicilio: this.domicilio,
       telefono: this.telefono,
       nacionalidad: this.nacionalidad,
@@ -71,12 +110,14 @@ export class BtnaspirantesComponent implements OnInit {
       extras: this.extras,
       url_logo: this.url_logo,
       url_CV: this.url_CV,
-      activo: false
+      activo: true
     };
-    this.aspiranteService.create(data)
+    this.aspiranteService.update(this.data.id,data)
     .subscribe(
       response => {
         console.log(response);
+        alert(response.message);
+        this.actualizarData();
         this.submitted = true;
       },
       error => {

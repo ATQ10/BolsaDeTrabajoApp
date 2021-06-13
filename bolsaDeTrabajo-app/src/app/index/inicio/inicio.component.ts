@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { md5 } from 'src/app/acceso/md5';
 
 @Component({
   selector: 'app-inicio',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  data:any;
+
   //Tipo de acceso
   tipo:string='';
   //Banners general
@@ -23,8 +26,18 @@ export class InicioComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.tipo='e';
+    // Obtener el arreglo de localStorage
+    this.data = localStorage.getItem('data');
+    this.data = JSON.parse(this.data);
+    var modo=localStorage.getItem('modo');
 
+    if(modo==md5("a")){
+      this.tipo='a';
+    }else if(modo==md5("e")){
+      this.tipo='e';
+    }else{
+      this.tipo='';
+    }
     switch (this.tipo) {
       case 'e':
         this.urlBanner = this.bempresa;

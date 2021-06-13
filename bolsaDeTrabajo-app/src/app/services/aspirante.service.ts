@@ -22,6 +22,10 @@ export class AspiranteService {
     return this.http.post(baseUrl, data);
   }
 
+  login(data:any): Observable<any> {
+    return this.http.post(`${baseUrl}/login`, data);
+  }
+
   update(id:any, data:any): Observable<any> {
     return this.http.put(`${baseUrl}/${id}`, data);
   }

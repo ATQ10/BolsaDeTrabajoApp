@@ -5,6 +5,9 @@ module.exports = app => {
   
     // Create a new Aspirante
     router.post("/", aspirantes.create);
+
+    // Create a new Aspirante
+    router.post("/login", aspirantes.login);
   
     // Retrieve all Aspirante
     router.get("/", aspirantes.findAll);
@@ -15,6 +18,9 @@ module.exports = app => {
     // Retrieve a single Aspirante with id
     router.get("/:id", aspirantes.findOne);
   
+    // Update a Aspirante with id (Activar)
+    router.get("/active/:id", aspirantes.active);
+    
     // Update a Aspirante with id
     router.put("/:id", aspirantes.update);
   

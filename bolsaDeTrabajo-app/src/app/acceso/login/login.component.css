@@ -34,7 +34,7 @@
 .form-control::placeholder{
     color: white;
 }
-input{
+input, option{
     font-weight: 600;
     color: white;
 }
