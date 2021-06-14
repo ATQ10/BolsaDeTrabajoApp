@@ -135,4 +135,9 @@ export class BtnempresasComponent implements OnInit {
     this.extras = "";
     this.url_logo = "";
   }
+
+  eliminarVacante(): void{
+    //Proceso para eliminar vacante de la BDD
+    alert("Se eliminó vacante exitosamente");
+  }
 }

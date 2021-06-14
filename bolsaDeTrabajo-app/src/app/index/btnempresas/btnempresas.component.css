@@ -12,6 +12,11 @@
 .btn2:hover{
     background: linear-gradient(90deg, rgba(251,81,100,0.9864320728291317) 0%, rgba(255,15,15,1) 50%, rgba(250,83,109,1) 100%);
 }
+.btn3{
+    background-color: none;
+    border: none;
+    color:blue;
+}
 .modal-title{
     background-color: none;
     border: none;

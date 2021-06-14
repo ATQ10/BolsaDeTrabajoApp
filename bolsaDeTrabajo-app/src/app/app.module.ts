@@ -16,6 +16,8 @@ import { AspirantesComponent } from './index/aspirantes/aspirantes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BtnempresasComponent } from './index/btnempresas/btnempresas.component';
 import { BtnaspirantesComponent } from './index/btnaspirantes/btnaspirantes.component';
+import { BtnempresasderComponent } from './index/btnempresasder/btnempresasder.component';
+import { GesaspiranteComponent } from './index/gesaspirante/gesaspirante.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BtnaspirantesComponent } from './index/btnaspirantes/btnaspirantes.comp
     EmpresasComponent,
     AspirantesComponent,
     BtnempresasComponent,
-    BtnaspirantesComponent
+    BtnaspirantesComponent,
+    BtnempresasderComponent,
+    GesaspiranteComponent,
   ],
   imports: [
     BrowserModule,

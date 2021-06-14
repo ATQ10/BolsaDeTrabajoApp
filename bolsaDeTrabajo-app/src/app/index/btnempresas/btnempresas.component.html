@@ -1,3 +1,4 @@
+<!--Botón EditarPerfil-->
 <ng-template #editarEmpresa let-modal>
     <div class="modal-header">
       <h4 class="modal-title">Editar Perfil</h4>
@@ -69,7 +70,7 @@
       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
-
+<!--Botón PublicarVacante-->
 <ng-template #pblVacante let-modal>
     <div class="modal-header">
       <h4 class="modal-title">Publicar Vacante</h4>
@@ -108,6 +109,7 @@
                 <input class="form-control" type="date" name="fecha_vigencia" [(ngModel)]="fecha_vigencia" required>
             </div>
             <!--CICLO FOR PARA INGRESAR PREGUNTAS SEGUN LA CANTIDAD SELECCIONADA
+              Campo para ingresar, botón añadir, botón eliminar
             <div class="form-group mx-sm-4 pt-2">
                 <div class="etiqueta">*Pregunta:</div>
                 <input class="form-control" type="text" name="pr{{i}}" placeholder="Ingrese pregunta para aspirante" [(ngModel)]="pr{{i}}" required>
@@ -123,6 +125,28 @@
       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
-
+<!--Botón GestionarVacantes-->
+<ng-template #gestVacante let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Gestionar Vacantes</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <form action="">
+        <!--Nombre Vacante, botón eliminar-->
+        <!--CICLO FOR PARA SACAR VACANTES DE LA BDD-->
+          <div class="form-group mx-sm-4">
+              <div class="etiqueta">VARIABLEVACANTE</div>
+              <button class="btn btn-block mb-4 mr-4 btn3" (click)="eliminarVacante()">Eliminar</button>
+          </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+  </div>
+</ng-template>
 <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(editarEmpresa)">Editar perfil</button>
 <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(pblVacante)">Publicar Vacante</button>
+<button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(gestVacante)">Gestionar Vacantes</button>
