@@ -140,4 +140,8 @@ export class BtnempresasComponent implements OnInit {
     //Proceso para eliminar vacante de la BDD
     alert("Se eliminó vacante exitosamente");
   }
+
+  eliminarCuenta(): void{
+    alert('Se eliminó cuenta exitosamente')
+  }
 }

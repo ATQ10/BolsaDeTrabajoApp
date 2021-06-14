@@ -18,6 +18,8 @@ import { BtnempresasComponent } from './index/btnempresas/btnempresas.component'
 import { BtnaspirantesComponent } from './index/btnaspirantes/btnaspirantes.component';
 import { BtnempresasderComponent } from './index/btnempresasder/btnempresasder.component';
 import { GesaspiranteComponent } from './index/gesaspirante/gesaspirante.component';
+import { BtnaspirantesderComponent } from './index/btnaspirantesder/btnaspirantesder.component';
+import { GessolicitudesComponent } from './index/gessolicitudes/gessolicitudes.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { GesaspiranteComponent } from './index/gesaspirante/gesaspirante.compone
     BtnaspirantesComponent,
     BtnempresasderComponent,
     GesaspiranteComponent,
+    BtnaspirantesderComponent,
+    GessolicitudesComponent,
   ],
   imports: [
     BrowserModule,

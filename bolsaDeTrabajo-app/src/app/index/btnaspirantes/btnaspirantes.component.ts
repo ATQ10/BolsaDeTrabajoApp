@@ -146,4 +146,8 @@ export class BtnaspirantesComponent implements OnInit {
     this.url_logo = "";
     this.url_CV = "";
   }
+
+  eliminarCuenta(): void{
+    alert('Se eliminó cuenta exitosamente')
+  }
 }

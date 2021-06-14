@@ -16,3 +16,21 @@
     background-color: none;
     border: none;
 }
+
+.btnas:hover{
+    box-shadow: 0 0 10px red;
+}
+
+.button{
+    background-color: none;
+    color: blue;
+    border-radius: 10px;
+    border: gray;
+}
+
+.button:hover{
+    color: red;
+}
+.btnrojo:hover{
+    background: linear-gradient(90deg, rgba(251,81,100,0.9864320728291317) 0%, rgba(255,15,15,1) 50%, rgba(250,83,109,1) 100%);
+}
