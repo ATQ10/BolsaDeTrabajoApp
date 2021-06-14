@@ -1,0 +1,23 @@
+.btn{
+    background-color: none;
+    border: none;
+}
+
+.btn2{
+    font-weight: 700;
+    background-color: red;
+    color: white;
+    border: none;
+}
+.btn2:hover{
+    background: linear-gradient(90deg, rgba(133,4,19,1) 0%, rgba(255,15,15,1) 50%, rgba(250,83,109,1) 100%);
+}
+
+.modal-title{
+    background-color: none;
+    border: none;
+}
+
+.btnemp:hover{
+    box-shadow: 0 0 10px red;
+}

@@ -5,13 +5,15 @@ import { LoginComponent } from './acceso/login/login.component';
 import { EmpresasComponent } from './index/empresas/empresas.component';
 import { AspirantesComponent } from './index/aspirantes/aspirantes.component';
 import { GesaspiranteComponent } from './index/gesaspirante/gesaspirante.component';
+import { GessolicitudesComponent } from './index/gessolicitudes/gessolicitudes.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent},
   { path: 'login', component: LoginComponent},
   { path: 'empresas', component: EmpresasComponent},
   { path: 'aspirantes', component: AspirantesComponent},
-  { path: 'gesaspirante', component: GesaspiranteComponent}
+  { path: 'gesaspirante', component: GesaspiranteComponent},
+  { path: 'solicitud/:id', component: GessolicitudesComponent}
 ];
 
 @NgModule({

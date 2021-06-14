@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-btnaspirantesder',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BtnaspirantesderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
-
+  openScrollableContent(contenido: any) {
+    this.modalService.open(contenido, { scrollable: true });
+  }
 }

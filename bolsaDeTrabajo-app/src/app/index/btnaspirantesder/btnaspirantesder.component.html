@@ -1,1 +1,23 @@
-<p>btnaspirantesder works!</p>
+<ng-template #solicitudes let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Mis Solicitudes</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <div class="modal-body">
+        <form action="">
+          <!--Nombre Vacante, botón eliminar-->
+          <!--CICLO FOR PARA SACAR VACANTES DE LA BDD-->
+            <div class="form-group mx-sm-4">
+                <div class="etiqueta">Solicitudes a empresas: </div>
+                <a class="nav-link btn2 mt-3 col-sm-6 col-lg-3 mx-auto" [routerLink]="'./solicitud/1'">Ver más</a>              
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+  </ng-template>
+  <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(solicitudes)">Gestionar mis solicitudes</button>
