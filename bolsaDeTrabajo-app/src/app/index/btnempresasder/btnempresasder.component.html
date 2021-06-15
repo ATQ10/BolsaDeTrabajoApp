@@ -12,7 +12,7 @@
           <!--CICLO FOR PARA SACAR VACANTES DE LA BDD-->
             <div class="form-group mx-sm-4">
                 <div class="etiqueta">VARIABLE ASPIRANTE</div>
-                <a class="nav-link btn2 mt-3 col-sm-6 col-lg-3 mx-auto" [routerLink]="'./gesaspirante'">Ver más</a>              
+                <a class="nav-link btn2 mt-3 col-sm-6 col-lg-3 mx-auto" (click)="modal.close('Close click')" [routerLink]="'./gesaspirante'">Ver más</a>              
             </div>
         </form>
     </div>
@@ -23,4 +23,4 @@
   <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(solAspirantes)">Ver las solicitudes</button>
   <button class="btn btnemp btn-block mb-2 mr-2">Videochat</button>
   <button class="btn btnemp btn-block mb-2 mr-2" (click)="irAspirante()">Buscar aspirante</button>
-  <button class="btn btnemp btn-block mb-2 mr-2" (click)="login.logout()">Salir</button>
+  <button class="btn btnrojo btn-block mb-2 mr-2" (click)="login.logout()">Salir</button>

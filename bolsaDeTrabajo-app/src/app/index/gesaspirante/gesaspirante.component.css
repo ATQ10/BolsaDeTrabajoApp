@@ -1,0 +1,11 @@
+.nombreEmpresa{
+    background: none;
+    border-color: red;
+    margin-left: 70px;    
+}
+
+.box{
+    background: rgba(238, 230, 230, 0.664); 
+    border-radius: 5px;
+   
+}
