@@ -160,6 +160,26 @@ exports.active = (req, res) => {
 
 };
 
+// CV a Aspirante by the id in the request
+exports.cv = (req, res) => {
+  const id = req.params.id;
+  const url_CV = req.body.url_CV;
+  
+  Aspirante.update(
+    { url_CV: url_CV },
+    { where: { id: id } }
+  )
+  .then(data =>
+      res.send({
+        message: "CV guardado exitosamente"
+      })
+    )
+    .catch(err =>
+      res.send(err)
+    )
+
+};
+
 // Update a Aspirante by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
@@ -187,6 +207,33 @@ exports.update = (req, res) => {
 
 // Delete a Aspirante with the specified id in the request
 exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Aspirante.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        Apermiso.destroy({
+          where: { id: id }
+        })
+        res.send({
+          respuesta: 1,
+          message: "Se eliminó cuenta exitosamente"
+        });
+      } else {
+        res.send({
+          respuesta: 0,
+          message: `Cannot delete Aspirante with id=${id}. Maybe Aspirante was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        respuesta: 0,
+        message: "Could not delete Aspirante with id=" + id
+      });
+    });
   
 };
 

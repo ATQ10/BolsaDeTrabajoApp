@@ -96,7 +96,7 @@
             <div class="form-group mx-sm-4 pt-2">
                 <div class="etiqueta">*Cantidad de preguntas para el aspirante:</div>
                 <select class="form-control" id="cantidad" name="cantidad" [(ngModel)]="cantidad" required>
-                  <option value="" selected>*Elegir cantidad*</option>
+                  <option value="0" selected>*Elegir cantidad*</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -108,16 +108,16 @@
                 <div class="etiqueta">*Vigencia vacante:</div>
                 <input class="form-control" type="date" name="fecha_vigencia" [(ngModel)]="fecha_vigencia" required>
             </div>
-            <!--CICLO FOR PARA INGRESAR PREGUNTAS SEGUN LA CANTIDAD SELECCIONADA
-              Campo para ingresar, botón añadir, botón eliminar
-            <div class="form-group mx-sm-4 pt-2">
-                <div class="etiqueta">*Pregunta:</div>
-                <input class="form-control" type="text" name="pr{{i}}" placeholder="Ingrese pregunta para aspirante" [(ngModel)]="pr{{i}}" required>
-            </div>-->
-            
+            <!--CICLO FOR PARA INGRESAR PREGUNTAS SEGUN LA CANTIDAD SELECCIONADA-->
+            <div *ngFor="let p of pregunta;let i = index">
+              <div class="form-group mx-sm-4 pt-2" *ngIf="(i>=0 && i<cantidad)">
+                <div class="etiqueta">*Pregunta {{i+1}}:</div>
+                <input class="form-control" type="text" id="{{i}}" placeholder="Ingrese pregunta para aspirante" required>
+              </div>
+            </div>
             <div class="form-group mx-sm-4">
-                <input type="submit" class="btn2 btn-block acceder" (click)="registrar()" value="GUARDAR">
-                <input type="reset" class="btn2 btn-block acceder" (click)="limpiar()" value="LIMPIAR">                
+                <input type="submit" class="btn2 btn-block acceder" (click)="guardarVacante()" value="GUARDAR">
+                <input type="reset" class="btn2 btn-block acceder" (click)="limpiarVacante()" value="LIMPIAR">                
             </div>
         </form>
     </div>
@@ -134,12 +134,12 @@
     </button>
   </div>
   <div class="modal-body">
-      <form action="">
+      <form action="" *ngFor="let vac of vacante;">
         <!--Nombre Vacante, botón eliminar-->
         <!--CICLO FOR PARA SACAR VACANTES DE LA BDD-->
           <div class="form-group mx-sm-4">
-              <div class="etiqueta">VARIABLEVACANTE</div>
-              <button class="btn btn-block mb-4 mr-4 btn3" (click)="eliminarVacante()">Eliminar</button>
+              <div class="etiqueta">Puesto: {{vac.puesto}}</div>
+              <button class="btn btn-block mb-4 mr-4 btn3" (click)="eliminarVacante(vac.id)">Eliminar</button>
           </div>
       </form>
   </div>
@@ -161,7 +161,6 @@
               <div class="etiqueta">¿Está seguro que desea eliminar su perfil?</div><br>   
           </div>       
           <div class="form-group mx-sm-4">
-            <!--BACKEND-->
             <input type="submit" class="btn2 btn-block acceder" (click)="eliminarCuenta()" value="SI">
           </div>
           </form>
@@ -173,5 +172,5 @@
 
 <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(editarEmpresa)">Editar perfil</button>
 <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(pblVacante)">Publicar Vacante</button>
-<button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(gestVacante)">Gestionar Vacantes</button>
+<button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollablegestion(gestVacante)">Gestionar Vacantes</button>
 <button class="btn btnrojo btn-block mb-2 mr-2" (click)="openScrollableContent(EliminarPerfil)">Eliminar Perfil</button>

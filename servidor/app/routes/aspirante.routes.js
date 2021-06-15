@@ -20,6 +20,9 @@ module.exports = app => {
   
     // Update a Aspirante with id (Activar)
     router.get("/active/:id", aspirantes.active);
+
+    // Update a Aspirante with id (CV)
+    router.put("/cv/:id", aspirantes.cv);
     
     // Update a Aspirante with id
     router.put("/:id", aspirantes.update);

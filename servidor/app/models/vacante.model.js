@@ -1,5 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
     const Vacante = sequelize.define("vacante", {
+      idEmpresa: {
+        type: Sequelize.STRING
+      },
       puesto: {
         type: Sequelize.STRING
       },
@@ -7,6 +10,9 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       cantidad: {
+        type: Sequelize.STRING
+      },
+      fecha_vigencia: {
         type: Sequelize.STRING
       },
       p1: {
@@ -23,9 +29,6 @@ module.exports = (sequelize, Sequelize) => {
       },
       p5: {
         type: Sequelize.STRING(500)
-      },
-      activo: {
-        type: Sequelize.BOOLEAN
       }
     });
     return Vacante;

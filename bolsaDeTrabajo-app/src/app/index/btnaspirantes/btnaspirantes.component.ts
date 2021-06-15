@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { md5 } from 'src/app/acceso/md5';
 import { AspiranteService } from 'src/app/services/aspirante.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-btnaspirantes',
@@ -31,10 +32,12 @@ export class BtnaspirantesComponent implements OnInit {
   extras: string = "";
   url_logo: string = "";
   url_CV: string = "";
+  nuevo_CV: string = "";
   closeResult: string = "";
   submitted = false;
   constructor(private modalService: NgbModal,
-    private aspiranteService: AspiranteService) { this.limpiar(); }
+    private aspiranteService: AspiranteService,
+    public login: LoginService) { this.limpiar(); }
 
   ngOnInit(): void {
     // Obtener el arreglo de localStorage
@@ -50,6 +53,7 @@ export class BtnaspirantesComponent implements OnInit {
         localStorage.setItem('modo', md5('a'));
         this.data = localStorage.getItem('data');
         this.data = JSON.parse(this.data);
+        this.obtenerData();
       },
       error => {
         console.log(error);
@@ -148,6 +152,42 @@ export class BtnaspirantesComponent implements OnInit {
   }
 
   eliminarCuenta(): void{
-    alert('Se eliminó cuenta exitosamente')
+    this.aspiranteService.delete(this.data.id)
+      .subscribe(
+        response => {
+          console.log(response);
+          if(response.respuesta==1){
+            alert(response.message);
+            this.login.logout();
+          }else{
+            alert("Intente mas tarde");
+            console.log(response);
+          }
+        },
+        error => {
+          console.log(error);
+    });
+  }
+
+  guardarCV(): void{
+    if(this.nuevo_CV==""){
+      alert("Complete el campo");
+    }else{
+      const data = {
+        id: this.data.id,
+        url_CV: this.nuevo_CV
+      };
+      this.aspiranteService.cv(this.data.id,data)
+      .subscribe(
+        response => {
+          console.log(response);
+          alert(response.message);
+          this.actualizarData();
+        },
+        error => {
+          console.log(error);
+        });
+    }
+    
   }
 }

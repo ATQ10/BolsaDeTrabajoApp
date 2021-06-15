@@ -156,7 +156,30 @@ exports.update = (req, res) => {
 
 // Delete a Empresa with the specified id in the request
 exports.delete = (req, res) => {
-  
+  const id = req.params.id;
+
+  Empresa.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          respuesta: 1,
+          message: "Se eliminó cuenta exitosamente"
+        });
+      } else {
+        res.send({
+          respuesta: 0,
+          message: `Cannot delete Aspirante with id=${id}. Maybe Aspirante was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        respuesta: 0,
+        message: "Could not delete Aspirante with id=" + id
+      });
+    });
 };
 
 // Delete all Aspirantes from the database.

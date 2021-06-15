@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-btnempresasder',
@@ -11,17 +13,21 @@ export class BtnempresasderComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private empresaService: EmpresaService
+    public login: LoginService,
+    private empresaService: EmpresaService,
+    private router: Router
     ) {
-      //this.limpiar();
      }
 
 
   ngOnInit(): void {
-    //this.obtenerData();
   }
 
   openScrollableContent(contenido: any) {
     this.modalService.open(contenido, { scrollable: true });
+  }
+  
+  irAspirante():void{
+    this.router.navigate(["./aspirantes"]);
   }
 }

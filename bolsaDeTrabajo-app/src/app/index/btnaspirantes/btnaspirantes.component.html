@@ -88,6 +88,8 @@
           </div>
           <div class="form-group mx-sm-4 pt-2">
             <div class="etiqueta">URL de logo:</div>
+            <input class="form-control" type="text" name="url_CV" [(ngModel)]="url_CV" required>
+
               <input class="form-control" type="text" name="url_logo" placeholder="Ingrese url de logo" [(ngModel)]="url_logo" required>
           </div>
           <div class="form-group mx-sm-4">
@@ -115,17 +117,17 @@
           <!-- BACKEND -->
             <div class="etiqueta">Inserta la liga de tu Curriculum Vitae aqui: </div>
             <br> 
-            <input class="form-control" type="text" name=" " placeholder="" >
+            <input class="form-control" type="text" name="nuevo_CV" [(ngModel)]="nuevo_CV" placeholder="">
         </div>
       <div>
         <input class ="button "type="button" onclick="alert('Paso 1: Prepara tu CV\n' + 
           'Paso 2: Sube tu CV a la nube\n'+ 
-          'Paso 3: Copia el link que te de y pegalo aquí')" value="¿Necesitas Ayuda?" />
+          'Paso 3: Copia el link que te de y pegalo aquí')" value="¿Necesitas Ayuda?" >
       </div>
            <br><br>
        
         <div class="form-group mx-sm-4">
-          <input type="submit" class="btn2 btn-block acceder" (click)="registrar()" value="GUARDAR">
+          <input type="submit" class="btn2 btn-block acceder" (click)="guardarCV()" value="GUARDAR">
           <input type="reset" class="btn2 btn-block acceder" (click)="limpiar()" value="LIMPIAR">
         </div>
     </form>
@@ -134,8 +136,6 @@
   <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
 </div>
 </ng-template>
-
-
 
 <ng-template #verCV let-modal>
 <div class="modal-header">
@@ -150,8 +150,7 @@
            <div class="etiqueta">Copie el siguiente link en su navegador: </div>
         </div>       
         <div>
-          <!-- BACKEND -->
-          <input class="form-control" type="text" name="url_CV" [(ngModel)]="url_CV" required>
+          <input class="form-control" type="text" name="url_CV" [(ngModel)]="url_CV" disabled>
         </div>
        </form>
 </div>
@@ -173,7 +172,6 @@
             <div class="etiqueta">¿Está seguro que desea eliminar su perfil?</div><br>   
         </div>       
         <div class="form-group mx-sm-4">
-          <!--BACKEND-->
           <input type="submit" class="btn2 btn-block acceder" (click)="eliminarCuenta()" value="SI">
         </div>
         </form>
