@@ -20,6 +20,8 @@ import { BtnempresasderComponent } from './index/btnempresasder/btnempresasder.c
 import { GesaspiranteComponent } from './index/gesaspirante/gesaspirante.component';
 import { BtnaspirantesderComponent } from './index/btnaspirantesder/btnaspirantesder.component';
 import { GessolicitudesComponent } from './index/gessolicitudes/gessolicitudes.component';
+import { AspiranteComponent } from './index/aspirante/aspirante.component';
+import { EmpresaComponent } from './index/empresa/empresa.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { GessolicitudesComponent } from './index/gessolicitudes/gessolicitudes.c
     GesaspiranteComponent,
     BtnaspirantesderComponent,
     GessolicitudesComponent,
+    AspiranteComponent,
+    EmpresaComponent,
   ],
   imports: [
     BrowserModule,

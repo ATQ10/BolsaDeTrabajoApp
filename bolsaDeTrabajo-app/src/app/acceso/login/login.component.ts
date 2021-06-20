@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.data="";
     this.limpiar();
     if(this.login.isActive())
       this.router.navigate(["./"]);
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
           response => {
             console.log(response);
             this.data = response;
-            if(this.data[0].email==data.email){
+            if(response.length!=0){
               if(this.data[0].activo){
                 if(this.data[0].password==data.password){
                   // Se guarda en localStorage despues de JSON stringificarlo 
@@ -73,12 +74,12 @@ export class LoginComponent implements OnInit {
           response => {
             console.log(response);
             this.data = response;
-            if(this.data[0].email==data.email){
+            if(response.length!=0){
               if(this.data[0].activo){
                 if(this.data[0].password==data.password){
                   // Se guarda en localStorage despues de JSON stringificarlo 
                   localStorage.setItem('data', JSON.stringify(this.data[0]));
-                  localStorage.setItem('modo', md5('e'));
+                  localStorage.setItem('modo', md5('a'));
                   this.router.navigate(["./"]);                 
                   alert("Bienvenid@");
                 }else{

@@ -212,6 +212,7 @@ export class BtnempresasComponent implements OnInit {
           if(response.respuesta==1){
             alert(response.message);
             this.login.logout();
+            
           }else{
             alert("Intente mas tarde");
             console.log(response);

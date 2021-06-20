@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 require("./app/routes/aspirante.routes")(app);
 require("./app/routes/empresa.routes")(app);
 require("./app/routes/vacante.routes")(app);
+require("./app/routes/solicitud.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;

@@ -75,14 +75,33 @@ exports.create = (req, res) => {
 
 // Retrieve all Empresa from the database.
 exports.findAll = (req, res) => {
+  const buscar = req.query.buscar;
   
+  var condition = buscar ? {
+    [Op.or]: [
+      { nombre: { [Op.like]: `%${buscar}%` } },
+      { areas: { [Op.like]: `%${buscar}%` } }
+    ]
+  } : null;
+
+  Empresa.findAll({ where: condition })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Empresa."
+      });
+    });
 };
 
 //Login
 exports.login = (req, res) => {
-  const email = req.query.email;
-  const password = md5(req.body.password);
-  var condition = email ? { email: { [Op.like]: `%${email}%` } } : null;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  var condition = email ? { email: { [Op.like]: email } } : null;
 
   Empresa.findAll({ where: condition })
     .then(data => {

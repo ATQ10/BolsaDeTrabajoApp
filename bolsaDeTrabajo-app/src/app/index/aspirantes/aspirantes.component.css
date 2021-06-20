@@ -37,3 +37,7 @@
 .itemsAspirante{
     height: 400px;
 }
+.card:hover{
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}

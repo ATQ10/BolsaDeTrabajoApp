@@ -23,5 +23,6 @@ db.aspirante = require("./aspirante.model.js")(sequelize, Sequelize);
 db.empresa = require("./empresa.model.js")(sequelize, Sequelize);
 db.apermiso = require("./apermiso.model.js")(sequelize, Sequelize);
 db.vacante = require("./vacante.model.js")(sequelize, Sequelize);
+db.solicitud = require("./solicitud.model.js")(sequelize, Sequelize);
 
 module.exports = db;

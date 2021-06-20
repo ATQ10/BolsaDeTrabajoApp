@@ -159,6 +159,7 @@ export class BtnaspirantesComponent implements OnInit {
           if(response.respuesta==1){
             alert(response.message);
             this.login.logout();
+            this.modalService.dismissAll();
           }else{
             alert("Intente mas tarde");
             console.log(response);
@@ -183,6 +184,7 @@ export class BtnaspirantesComponent implements OnInit {
           console.log(response);
           alert(response.message);
           this.actualizarData();
+          this.modalService.dismissAll();
         },
         error => {
           console.log(error);

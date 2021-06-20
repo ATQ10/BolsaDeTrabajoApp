@@ -10,8 +10,8 @@ export class AspiranteService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    return this.http.get(baseUrl);
+  getAll(buscar:any): Observable<any> {
+    return this.http.get(`${baseUrl}?buscar=${buscar}`);
   }
 
   get(id:any): Observable<any> {

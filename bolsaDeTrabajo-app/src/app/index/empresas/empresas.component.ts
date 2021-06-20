@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({
   selector: 'app-empresas',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./empresas.component.css']
 })
 export class EmpresasComponent implements OnInit {
-
-  constructor() { }
+  empresas:any;
+  buscar:string="";
+  constructor(
+    private empresaService:EmpresaService
+  ) { }
 
   ngOnInit(): void {
+    this.buscar="";
+    this.busqueda();
+  }
+
+  busqueda(): void{
+    this.empresaService.getAll(this.buscar)
+      .subscribe(
+      response => {
+        console.log(response);
+        if(response.length!=0){
+          this.empresas=response;
+        }else{
+          this.empresas=null;
+        }
+      },
+      error => {
+        console.log(error);
+      });
   }
 
 }

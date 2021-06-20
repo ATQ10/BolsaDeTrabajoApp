@@ -6,28 +6,42 @@
     </div>
     <div class="row py-4 px-1 mx-5 text-center justify-content-center rowbuscar">
         <div class="col-sm-12 col-lg-8 col-md-8 mx-sm-0 px-sm-0">
-            <input class="col-12 barra" type="text" placeholder="¿Qué empresa estas buscando?">
+            <input class="col-12 barra" type="text" [(ngModel)]="buscar" placeholder="¿Qué empresa estas buscando?">
         </div>
         <div class="col-sm-12 col-lg-2 col-md-2 mx-sm-0 px-sm-0">
-            <div class="btn btn-block btn-outline-success buscar">
+            <div class="btn btn-block btn-outline-success buscar" (click)="busqueda()">
                 Buscar
             </div>
         </div>
     </div>
     <div class="row px-4 pt-3">
-        <div class="col-12">
-            <span class="tendencia">Tendencias:</span>
-            <span class="op"> Empresa 1 </span>
-            <span class="op"> Empresa 2 </span>
-            <span class="op"> Empresa 3 </span>
+        <div class="col-12 py-3">
         </div>
     </div>
     <div class="row px-4 mx-2 mt-3 rowresultados">
         <div class="col-12 text-center">
             <h5>*Filtro de empresas*</h5>
         </div>
-        <div class="itemsEmpresa">
-
+        <div class="row" *ngIf="empresas">
+            <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let empresa of empresas">
+                <div class="card mb-4">
+                    <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="{{empresa.url_logo}}" alt="{{empresa.nombre}}" style="max-width: 100%;">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                        <h5 class="card-title">{{empresa.nombre}}</h5>
+                        <p class="card-text">Areas: {{empresa.areas}}</p>
+                        <p class="card-text"><small class="text-muted">Fecha: {{empresa.fecha_fundacion}}</small></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-center itemsEmpresa" *ngIf="!empresas">
+            <h5>No se encontraron resultados</h5>
         </div>
     </div>
     <div class="mt-3">
