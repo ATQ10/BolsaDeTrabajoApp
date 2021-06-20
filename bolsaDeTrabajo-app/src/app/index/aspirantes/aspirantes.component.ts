@@ -37,7 +37,7 @@ export class AspirantesComponent implements OnInit {
   }
 
   consultarAspirante(id:any):void{
-    this.router.navigate(["infouser",id]);
+    this.router.navigate([id,"aspirante"]);
   }
 
 }

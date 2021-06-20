@@ -24,7 +24,7 @@
         </div>
         <div class="row" *ngIf="empresas">
             <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let empresa of empresas">
-                <div class="card mb-4">
+                <div class="card mb-4" (click)="consultarEmpresa(empresa.id)">
                     <div class="row g-0">
                     <div class="col-md-5">
                         <img src="{{empresa.url_logo}}" alt="{{empresa.nombre}}" style="max-width: 100%;">

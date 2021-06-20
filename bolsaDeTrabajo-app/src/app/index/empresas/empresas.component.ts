@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class EmpresasComponent implements OnInit {
   empresas:any;
   buscar:string="";
   constructor(
-    private empresaService:EmpresaService
+    private empresaService:EmpresaService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,10 @@ export class EmpresasComponent implements OnInit {
       error => {
         console.log(error);
       });
+  }
+
+  consultarEmpresa(id:any):void{
+    this.router.navigate([id,"empresa"]);
   }
 
 }
