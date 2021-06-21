@@ -22,7 +22,7 @@
         <div class="col-12 text-center">
             <h5>*Filtro de aspirantes*</h5>
         </div>
-        <div class="row" *ngIf="aspirantes">
+        <div class="row w-100" *ngIf="aspirantes">
             <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let aspirante of aspirantes">
                 <div class="card mb-4" (click)="consultarAspirante(aspirante.id)">
                     <div class="row g-0">

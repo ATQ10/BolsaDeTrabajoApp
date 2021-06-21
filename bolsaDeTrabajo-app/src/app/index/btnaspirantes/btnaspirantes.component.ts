@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { md5 } from 'src/app/acceso/md5';
 import { AspiranteService } from 'src/app/services/aspirante.service';
 import { LoginService } from 'src/app/services/login.service';
+import { PermisoService } from 'src/app/services/permiso.service';
 
 @Component({
   selector: 'app-btnaspirantes',
@@ -12,6 +13,7 @@ import { LoginService } from 'src/app/services/login.service';
 
 export class BtnaspirantesComponent implements OnInit {
   data:any;
+  permiso:any;
 
   nombre: string = "";
   apellido: string = "";
@@ -37,11 +39,14 @@ export class BtnaspirantesComponent implements OnInit {
   submitted = false;
   constructor(private modalService: NgbModal,
     private aspiranteService: AspiranteService,
+    private permisoService: PermisoService,
     public login: LoginService) { this.limpiar(); }
 
   ngOnInit(): void {
     // Obtener el arreglo de localStorage
+    this.permiso="";
     this.obtenerData();
+    this.actualizarPermisos();
   }
   actualizarData(){
     this.aspiranteService.get(this.data.id)
@@ -54,6 +59,21 @@ export class BtnaspirantesComponent implements OnInit {
         this.data = localStorage.getItem('data');
         this.data = JSON.parse(this.data);
         this.obtenerData();
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+  
+  actualizarPermisos(){
+    this.permisoService.get(this.data.id)
+      .subscribe(
+      response => {
+        console.log(response);
+        this.permiso = response;
+        console.log(this.permiso.nombre);
+
       },
       error => {
         console.log(error);
@@ -92,8 +112,46 @@ export class BtnaspirantesComponent implements OnInit {
         return;
       } else{
         this.saveAspirante();
+        this.savePermisos();
       }
   }
+  savePermisos():void{
+    const data = {
+      nombre: true,
+      apellido: true,
+      sexo: !(document.getElementById("sexo2") as HTMLInputElement).checked,
+      fecha_nacimiento: !(document.getElementById("fecha_nacimiento") as HTMLInputElement).checked,
+      email: !(document.getElementById("email") as HTMLInputElement).checked,
+      password: false,
+      domicilio: !(document.getElementById("domicilio") as HTMLInputElement).checked,
+      telefono: !(document.getElementById("telefono") as HTMLInputElement).checked,
+      nacionalidad: !(document.getElementById("nacionalidad") as HTMLInputElement).checked,
+      residencia: !(document.getElementById("residencia") as HTMLInputElement).checked,
+      idioma_primario: !(document.getElementById("idioma_primario") as HTMLInputElement).checked,
+      idioma_secundario: !(document.getElementById("idioma_secundario") as HTMLInputElement).checked,
+      disp_horario: !(document.getElementById("disp_horario2") as HTMLInputElement).checked,
+      disp_viajar: !(document.getElementById("disp_viajar2") as HTMLInputElement).checked,
+      areas: true,
+      extras: !(document.getElementById("extras") as HTMLInputElement).checked,
+      url_logo: true,
+      url_CV: true,
+      activo: true
+    };
+    this.permisoService.update(this.data.id,data)
+    .subscribe(
+      response => {
+        console.log(response);
+        alert(response.message);
+        this.actualizarPermisos();
+        this.submitted = true;
+      },
+      error => {
+        console.log(error);
+      });
+  }
+
+
+
   saveAspirante(): void{
     const data = {
       nombre: this.nombre,

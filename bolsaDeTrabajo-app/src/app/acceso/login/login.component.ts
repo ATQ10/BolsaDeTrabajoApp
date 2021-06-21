@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
                 if(this.data[0].password==data.password){
                   // Se guarda en localStorage despues de JSON stringificarlo 
                   localStorage.setItem('data', JSON.stringify(this.data[0]));
-                  localStorage.setItem('modo', md5('a'));
+                  localStorage.setItem('modo', md5('e'));
                   this.router.navigate(["./"]);                 
                   alert("Bienvenid@");
                 }else{

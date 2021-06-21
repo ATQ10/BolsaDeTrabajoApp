@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+const baseUrl = 'http://localhost:3000/api/permisos';
 
-const baseUrl = 'http://localhost:3000/api/aspirantes';
 @Injectable({
   providedIn: 'root'
 })
-export class AspiranteService {
+export class PermisoService {
+
 
   constructor(private http: HttpClient) { }
 
@@ -34,10 +35,6 @@ export class AspiranteService {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
-  enviar(id:any, data:any): Observable<any> {
-    return this.http.put(`${baseUrl}/enviar/${id}`, data);
-  }
-
   delete(id:any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
   }
@@ -49,4 +46,5 @@ export class AspiranteService {
   findByTitle(title:any): Observable<any> {
     return this.http.get(`${baseUrl}?title=${title}`);
   }
+  
 }

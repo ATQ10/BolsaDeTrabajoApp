@@ -26,6 +26,9 @@ module.exports = app => {
     
     // Update a Aspirante with id
     router.put("/:id", aspirantes.update);
+    
+    // Enviar a Aspirante with id
+    router.put("/enviar/:id", aspirantes.enviar);
   
     // Delete a Aspirante with id
     router.delete("/:id", aspirantes.delete);

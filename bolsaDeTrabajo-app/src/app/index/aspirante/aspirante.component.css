@@ -1,0 +1,28 @@
+.rowresultados{
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+    border: 3px solid rgb(0, 0, 0);
+}
+.contenido{
+    font-size: 20px;
+    font-weight: 600;
+}
+.nombre{
+    font-family: fantasy;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+
+.buscar{
+    height: 40px;
+    border-radius: 0px;
+    background-color: red;
+    border: none;
+    background-color: red;
+    color: white;
+}
+.buscar:hover{
+    background: linear-gradient(90deg, rgba(133,4,19,1) 0%, rgba(255,15,15,1) 50%, rgba(250,83,109,1) 100%);
+}

@@ -226,6 +226,49 @@ exports.update = (req, res) => {
     });
 };
 
+// enviar a Aspirante by the id in the request
+exports.enviar = (req, res) => {
+  const id = req.params.id;
+  const descripcion = req.body.descripcion;
+  const nombre = req.body.nombre;
+  const email = req.body.email;
+  //NODEMAILER
+      //Creamos el objeto de transporte
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'unemployed.assistent@gmail.com',
+          pass: 'UNEMPLOYED123'
+        }
+      });
+
+      var mensaje = "Estimad@ "+nombre+"\nNos comunicamos contigo ya que "+
+       " hemos recibido una oferta de empleo hacia ti, el mensaje dice:\n"+
+       " \""+descripcion+"\"";
+
+      var mailOptions = {
+        from: 'unemployed.assistent@gmail.com',
+        to: email,
+        subject: 'Validando mi cuenta de unemployed.com',
+        text: mensaje
+      };
+
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+          res.status(500).send({
+            message: "Intente mas tarde"
+          });
+        } else {
+          console.log('Email enviado: ' + info.response);
+          res.send({
+            message: `Información enviada al correo electrónico del aspirante`
+          });
+        }
+      });
+      //NODEMAILER
+};
+
 // Delete a Aspirante with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
