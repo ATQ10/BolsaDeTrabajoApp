@@ -1,6 +1,6 @@
 <ng-template #solAspirantes let-modal>
     <div class="modal-header">
-      <h4 class="modal-title">Gestionar Vacantes</h4>
+      <h4 class="modal-title">Gestionar solicitantes</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -10,10 +10,14 @@
         <form action="">
           <!--Nombre Vacante, botón eliminar-->
           <!--CICLO FOR PARA SACAR VACANTES DE LA BDD-->
-            <div class="form-group mx-sm-4">
-                <div class="etiqueta">VARIABLE ASPIRANTE</div>
-                <a class="nav-link btn2 mt-3 col-sm-6 col-lg-3 mx-auto" (click)="modal.close('Close click')" [routerLink]="'./gesaspirante'">Ver más</a>              
+          <div class="form-group mx-sm-4" *ngFor="let solicitud of solicitudes;">
+            <div class="etiqueta"> <span style="font-size: 22px;">Puesto: {{solicitud.puesto}} | </span> 
+              <span *ngIf="solicitud.estado=='Aceptado'" style="background-color: rgb(155, 226, 83);">{{solicitud.estado}}</span>
+              <span *ngIf="solicitud.estado=='Rechazado'" style="background-color: rgb(233, 73, 73);">{{solicitud.estado}}</span>
+              <span *ngIf="solicitud.estado==''" style="background-color: rgb(245, 247, 244);">Pendiente</span>
             </div>
+            <a class="nav-link btn2 mt-3 col-sm-6 col-lg-3 mx-auto" (click)="verSolicitud(solicitud.id)">Ver más</a>              
+        </div>
         </form>
     </div>
     <div class="modal-footer">

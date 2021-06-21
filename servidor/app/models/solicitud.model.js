@@ -6,6 +6,9 @@ module.exports = (sequelize, Sequelize) => {
       idEmpresa: {
         type: Sequelize.STRING
       },
+      idVacante: {
+        type: Sequelize.STRING
+      },
       nombreAspirante: {
         type: Sequelize.STRING
       },

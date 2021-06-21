@@ -43,8 +43,26 @@ exports.create = (req, res) => {
 
 // Retrieve all Solicitud from the database.
 exports.findAll = (req, res) => {
-    const idAspirante = req.query.idAspirante;
-    var condition = idAspirante ? { idAspirante: { [Op.eq]: idAspirante } } : null;
+  const idAspirante = req.query.idAspirante;
+  const id = req.query.id;
+    var condition = idAspirante ? { idAspirante: { [Op.eq]: idAspirante } } : { id: { [Op.eq]: id } };
+  
+    Solicitud.findAll({ where: condition })
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving Solicitud."
+        });
+      });
+};
+
+// Retrieve all Solicitud from the database.
+exports.findE = (req, res) => {
+  const idEmpresa = req.query.idEmpresa;
+    var condition = idEmpresa ? { idEmpresa: { [Op.eq]: idEmpresa } } : null ;
   
     Solicitud.findAll({ where: condition })
       .then(data => {
@@ -78,7 +96,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Vacante.destroy({
+    Solicitud.destroy({
       where: { id: id }
     })
       .then(num => {

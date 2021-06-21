@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'empresas', component: EmpresasComponent},
   { path: 'aspirantes', component: AspirantesComponent},
   { path: 'gesaspirante', component: GesaspiranteComponent},
-  { path: 'solicitud/:id', component: GessolicitudesComponent},
+  { path: ':id/solicitud', component: GessolicitudesComponent},
   { path: ':idA/aspirante', component: AspiranteComponent},
   { path: ':idE/empresa', component: EmpresaComponent}
 ];

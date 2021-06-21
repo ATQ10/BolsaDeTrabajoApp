@@ -43,8 +43,9 @@ exports.create = (req, res) => {
 
 // Retrieve all Vacantes from the database.
 exports.findAll = (req, res) => {
-    const idEmpresa = req.query.idEmpresa;
-    var condition = idEmpresa ? { idEmpresa: { [Op.eq]: idEmpresa } } : null;
+  const idEmpresa = req.query.idEmpresa;
+  const id = req.query.id;
+    var condition = idEmpresa ? { idEmpresa: { [Op.eq]: idEmpresa } } : { id: { [Op.eq]: id } };
   
     Vacante.findAll({ where: condition })
       .then(data => {

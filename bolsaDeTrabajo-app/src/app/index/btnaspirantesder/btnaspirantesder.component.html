@@ -1,4 +1,4 @@
-<ng-template #solicitudes let-modal>
+<ng-template #sol let-modal>
     <div class="modal-header">
       <h4 class="modal-title">Mis Solicitudes</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -10,9 +10,13 @@
         <form action="">
           <!--Nombre Vacante, botón eliminar-->
           <!--CICLO FOR PARA SACAR VACANTES DE LA BDD-->
-            <div class="form-group mx-sm-4">
-                <div class="etiqueta">Solicitudes a empresas: </div>
-                <a class="nav-link btn2 mt-3 col-sm-6 col-lg-3 mx-auto" (click)="modal.close('Close click')" [routerLink]="'./solicitud/1'">Ver más</a>              
+            <div class="form-group mx-sm-4" *ngFor="let solicitud of solicitudes;">
+                <div class="etiqueta"> <span style="font-size: 22px;">Puesto: {{solicitud.puesto}} | </span> 
+                  <span *ngIf="solicitud.estado=='Aceptado'" style="background-color: rgb(155, 226, 83);">{{solicitud.estado}}</span>
+                  <span *ngIf="solicitud.estado=='Rechazado'" style="background-color: rgb(233, 73, 73);">{{solicitud.estado}}</span>
+                  <span *ngIf="solicitud.estado==''" style="background-color: rgb(245, 247, 244);">Pendiente</span>
+                </div>
+                <a class="nav-link btn2 mt-3 col-sm-6 col-lg-3 mx-auto" (click)="verSolicitud(solicitud.id)">Ver más</a>              
             </div>
         </form>
     </div>
@@ -20,7 +24,7 @@
       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
     </div>
   </ng-template>
-  <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(solicitudes)">Gestionar mis solicitudes</button>
+  <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(sol)">Gestionar mis solicitudes</button>
   <button class="btn btnemp btn-block mb-2 mr-2">Videochat</button>
   <button class="btn btnemp btn-block mb-2 mr-2" (click)="irEmpresa()">Buscar empresa</button>
   <button class="btn btnrojo btn-block mb-2 mr-2" (click)="login.logout()">Salir</button>

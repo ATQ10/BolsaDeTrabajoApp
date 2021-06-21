@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:3000/api/vacantes';
+const baseUrl = 'http://localhost:3000/api/solicitudes';
 
 @Injectable({
   providedIn: 'root'
 })
-export class VacanteService {
+export class SolicitudService {
   
   constructor(private http: HttpClient) { }
   getAll(): Observable<any> {
@@ -15,7 +15,11 @@ export class VacanteService {
   }
 
   get(id:any): Observable<any> {
-    return this.http.get(`${baseUrl}/?idEmpresa=${id}`);
+    return this.http.get(`${baseUrl}/?idAspirante=${id}`);
+  }
+
+  getEmpresa(id:any): Observable<any> {
+    return this.http.get(`${baseUrl}/e/?idEmpresa=${id}`);
   }
 
   getId(id:any): Observable<any> {

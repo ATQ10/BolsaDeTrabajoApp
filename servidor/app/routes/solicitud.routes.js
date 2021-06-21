@@ -8,6 +8,9 @@ module.exports = app => {
   
     // Retrieve all solicitudes
     router.get("/", solicitudes.findAll);
+
+    // Retrieve all solicitudes
+    router.get("/e", solicitudes.findE);
   
     // Retrieve all published solicitudes
     router.get("/published", solicitudes.findAllPublished);
