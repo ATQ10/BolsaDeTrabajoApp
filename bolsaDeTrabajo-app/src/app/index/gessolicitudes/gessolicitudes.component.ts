@@ -111,10 +111,9 @@ export class GessolicitudesComponent implements OnInit {
     if (url === null) {
         return '';
     }
-    results = url.match('[\\?&]v=([^&#]*)');
-    video   = (results === null) ? url : results[1];
+    video   = url;
  
-    return this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
+    return this._sanitizer.bypassSecurityTrustResourceUrl("http://127.0.0.1:8080/"+video+".webm");   
   }
 
   eliminarSolicitud(id:any){

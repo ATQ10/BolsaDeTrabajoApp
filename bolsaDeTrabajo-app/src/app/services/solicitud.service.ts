@@ -10,6 +10,7 @@ const baseUrl = 'http://localhost:3000/api/solicitudes';
 export class SolicitudService {
   
   constructor(private http: HttpClient) { }
+    
   getAll(): Observable<any> {
     return this.http.get(baseUrl);
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { md5 } from 'src/app/acceso/md5';
 import { LoginService } from 'src/app/services/login.service';
 import { SolicitudService } from 'src/app/services/solicitud.service';
 
@@ -47,4 +48,11 @@ export class BtnaspirantesderComponent implements OnInit {
     this.router.navigate([id,"solicitud"]);
     this.modalService.dismissAll();
   }
+
+  codigo():void{
+    var url = md5(this.data.id.toString());
+    alert("Sala: "+ url);
+    window.location.href="http://127.0.0.1:3001/"+url;
+  }
+
 }

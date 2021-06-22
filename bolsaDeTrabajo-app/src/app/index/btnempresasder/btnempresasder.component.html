@@ -24,7 +24,32 @@
       <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
     </div>
   </ng-template>
+
+
+  <ng-template #videollam let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Videollamada</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <div class="modal-body">
+        <form action="">
+          <!--Nombre Vacante, botón eliminar-->
+          <!--CICLO FOR PARA SACAR VACANTES DE LA BDD-->
+          <div class="form-group mx-sm-4" *ngFor="let aspirante of aspirantes;let i = index;">
+            <div class="etiqueta"> <a style="font-size: 15px;" href="http://127.0.0.1:3001/{{codigos[i]}}">Yo soy {{aspirante.nombre}} {{aspirante.apellido}} </a> 
+            </div>
+        </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+  </ng-template>
+
   <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(solAspirantes)">Ver las solicitudes</button>
-  <button class="btn btnemp btn-block mb-2 mr-2">Videochat</button>
+  <button class="btn btnemp btn-block mb-2 mr-2" (click)="openScrollableContent(videollam)">Videochat</button>
   <button class="btn btnemp btn-block mb-2 mr-2" (click)="irAspirante()">Buscar aspirante</button>
   <button class="btn btnrojo btn-block mb-2 mr-2" (click)="login.logout()">Salir</button>

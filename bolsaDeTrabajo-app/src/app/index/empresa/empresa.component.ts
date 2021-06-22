@@ -1,10 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter  } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
 import { md5 } from 'src/app/acceso/md5';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { VacanteService } from 'src/app/services/vacante.service';
 import { SolicitudService } from 'src/app/services/solicitud.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { UploadFile, UploadInput, UploadOutput } from 'ng-uikit-pro-standard';
+import { humanizeBytes } from 'ng-uikit-pro-standard';
 
 @Component({
   selector: 'app-empresa',
@@ -12,6 +16,14 @@ import { SolicitudService } from 'src/app/services/solicitud.service';
   styleUrls: ['./empresa.component.css']
 })
 export class EmpresaComponent implements OnInit {
+  //---------
+  formData: any;
+  files: UploadFile[];
+  uploadInput: EventEmitter<UploadInput>;
+  humanizeBytes: Function;
+  dragOver: any;
+  //-----------
+  urlSafe:any;
   data:any;
   puesto:string="";
   tipo:string="";
@@ -25,13 +37,18 @@ export class EmpresaComponent implements OnInit {
   empresa:any;
   this: any;
 
-  constructor(
+  constructor(public sanitizer: DomSanitizer,
     private modalService: NgbModal,
     private vacanteService:VacanteService,
     private empresaService:EmpresaService,
     private solicitudService:SolicitudService,
     private activedRoute: ActivatedRoute,
     private router: Router) {
+
+      this.files = [];
+      this.uploadInput = new EventEmitter<UploadInput>();
+      this.humanizeBytes = humanizeBytes;
+
       this.idEmpresa = this.activedRoute.snapshot.params.idE;
     }
 
@@ -108,6 +125,9 @@ export class EmpresaComponent implements OnInit {
           this.pregunta[2]=this.vacante.p3;
           this.pregunta[3]=this.vacante.p4;
           this.pregunta[4]=this.vacante.p5;
+          if(this.tipo=='video'){
+            //this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl("http://127.0.0.1:8080");
+          }
         }else{
           this.vacante=null;
         }
@@ -135,6 +155,7 @@ export class EmpresaComponent implements OnInit {
         respuesta: this.respuesta,
         estado: ''
       };
+      
       console.log(data2);
       this.solicitudService.create(data2)
       .subscribe(
@@ -147,11 +168,29 @@ export class EmpresaComponent implements OnInit {
         error => {
           console.log(error);
         });
+        //--------
+        //--------
     }
   }
+
+  
 
   limpiarSolicitud():void{
     this.respuesta="";
   }
+
+
+  //-----------------------------
+
+  startUpload(): void {
+    const event: UploadInput = {
+    type: 'uploadAll',
+    url: './',
+    method: 'POST',
+    data: { foo: 'bar' },
+    };
+    this.files = [];
+    this.uploadInput.emit(event);
+}
 
 }

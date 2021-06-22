@@ -48,10 +48,12 @@
                 <textarea class="form-control"  name="respuesta" id="respuesta"></textarea>
             </div>
             <div class="form-group mx-sm-4" *ngIf="tipo=='audio'">
-                tipoaudio
+                <B> <a href="http://127.0.0.1:8080/audio?id={{vacante.id}}" target="_blank"> IR A GRABAR AUDIO</a> </B>
+                <textarea class="form-control"  name="respuesta" id="respuesta" placeholder="link aquí"></textarea>
             </div>
-            <div class="form-group mx-sm-4" *ngIf="tipo=='video'">
-                tipo video
+            <div class="form-group mx-sm-4 text-center" *ngIf="tipo=='video'">
+                <B> <a href="http://127.0.0.1:8080?id={{vacante.id}}" target="_blank"> IR A GRABAR VIDEO</a> </B>
+                <textarea class="form-control"  name="respuesta" id="respuesta" placeholder="link aquí"></textarea>
             </div>
             <div class="form-group mx-sm-4">
                 <button class="btn2 btn-block acceder" (click)="guardarSolicitud()">GUARDAR</button>
