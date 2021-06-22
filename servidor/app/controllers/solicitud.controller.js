@@ -18,6 +18,7 @@ exports.create = (req, res) => {
       const data = {
         idAspirante: req.body.idAspirante,
         idEmpresa: req.body.idEmpresa,
+        idVacante: req.body.idVacante,
         nombreAspirante: req.body.nombreAspirante,
         apellidoAspirante: req.body.apellidoAspirante,
         nombreEmpresa: req.body.nombreEmpresa,

@@ -249,7 +249,7 @@ exports.enviar = (req, res) => {
       var mailOptions = {
         from: 'unemployed.assistent@gmail.com',
         to: email,
-        subject: 'Validando mi cuenta de unemployed.com',
+        subject: 'Bolsa de Trabajo',
         text: mensaje
       };
 
