@@ -9,3 +9,9 @@
     border-radius: 5px;
    
 }
+.rowresultados{
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+    border: 3px solid rgb(0, 0, 0);
+}

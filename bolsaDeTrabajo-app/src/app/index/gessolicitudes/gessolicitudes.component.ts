@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VacanteService } from 'src/app/services/vacante.service';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { LoginService } from 'src/app/services/login.service';
+import { md5 } from 'src/app/acceso/md5';
 
 @Component({
   selector: 'app-gessolicitudes',
@@ -37,6 +38,13 @@ export class GessolicitudesComponent implements OnInit {
     this.empresa="";
     this.preguntas=['','','','',''];
     this.actualizarSolicitud();
+    var modo=localStorage.getItem('modo');
+
+    if(modo==md5("a")){
+      return;
+    }else if(modo==md5("e")){
+      this.router.navigate(["./"]);
+    }
   }
 
   actualizarEmpresa():void{

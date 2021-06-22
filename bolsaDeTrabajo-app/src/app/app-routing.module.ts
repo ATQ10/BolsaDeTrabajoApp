@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'empresas', component: EmpresasComponent},
   { path: 'aspirantes', component: AspirantesComponent},
-  { path: 'gesaspirante', component: GesaspiranteComponent},
+  { path: ':id/revisar', component: GesaspiranteComponent},
   { path: ':id/solicitud', component: GessolicitudesComponent},
   { path: ':idA/aspirante', component: AspiranteComponent},
   { path: ':idE/empresa', component: EmpresaComponent}

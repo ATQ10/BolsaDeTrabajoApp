@@ -30,6 +30,7 @@ export class BtnempresasderComponent implements OnInit {
     this.data = JSON.parse(this.data);
     this.actualizarSolicitudes();
   }
+  
   actualizarSolicitudes():void{
     this.solicitudService.getEmpresa(this.data.id)
       .subscribe(
@@ -50,7 +51,6 @@ export class BtnempresasderComponent implements OnInit {
     this.router.navigate(["./aspirantes"]);
   }
   
-
   verSolicitud(id:any):void{
     this.router.navigate([id,"revisar"]);
     this.modalService.dismissAll();

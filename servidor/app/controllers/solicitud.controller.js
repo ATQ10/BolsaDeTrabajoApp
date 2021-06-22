@@ -89,7 +89,27 @@ exports.active = (req, res) => {
 
 // Update a Solicitud by the id in the request
 exports.update = (req, res) => {
-  
+  const id = req.params.id;
+
+  Solicitud.update(req.body, {
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Solicitud "+req.body.estado
+        });
+      } else {
+        res.send({
+          message: `Cannot update Solicitud with id=${id}. Maybe Solicitud was not found or req.body is empty!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Solicitud with id=" + id
+      });
+    });
 };
 
 // Delete a Solicitud with the specified id in the request
